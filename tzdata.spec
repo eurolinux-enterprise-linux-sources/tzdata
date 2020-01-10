@@ -11,10 +11,10 @@
 
 Summary: Timezone data
 Name: tzdata
-Version: 2019b
-%define tzdata_version 2019b
-%define tzcode_version 2019b
-Release: 2%{?dist}
+Version: 2019c
+%define tzdata_version 2019c
+%define tzcode_version 2019c
+Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
 URL: https://www.iana.org/time-zones
@@ -259,6 +259,11 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Sep 11 2019 Patsy Griffin <patsy@redhat.com> - 2019c-1
+- Rebase to tzdata-2019c
+  - Fiji will observe DST from 2019-11-10 to 2020-01-12.
+  - Norfolk Island will begin observing Australian-style DST on 2019-10-06.
+
 * Wed Jul 03 2019 Patsy Griffin <patsy@redhat.com> - 2019b-2
 - Need to bump the release in order to update the build.
 
