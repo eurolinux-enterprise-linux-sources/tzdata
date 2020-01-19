@@ -1,8 +1,8 @@
 Summary: Timezone data
 Name: tzdata
-Version: 2018g
-%define tzdata_version 2018g
-%define tzcode_version 2018g
+Version: 2019c
+%define tzdata_version 2019c
+%define tzcode_version 2019c
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -10,7 +10,6 @@ URL: https://www.iana.org/time-zones
 Source0: ftp://ftp.iana.org/tz/releases/tzdata%{tzdata_version}.tar.gz
 Source1: ftp://ftp.iana.org/tz/releases/tzcode%{tzcode_version}.tar.gz
 
-Patch001: 0001-Correct-tm_dst-during-Morocco-transition.patch
 Patch002: 0002-Fix-have-snprintf.patch
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -44,7 +43,6 @@ This package contains timezone information for use by Java runtimes.
 %prep
 %setup -q -c -a 1
 
-%patch001 -p1
 %patch002 -p1
 
 # Currently tzdata is providing the "rearguard" data set for maximum
@@ -150,6 +148,33 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/javazi-1.8
 
 %changelog
+* Wed Sep 11 2019 Patsy Griffin <patsy@redhat.com> - 2019c-1
+- Rebase to tzdata-2019c
+  - Fiji will observe DST from 2019-11-10 to 2020-01-12.
+  - Norfolk Island will begin observing Australian-style DST on 2019-10-06.
+
+* Mon Jul 01 2019 Patsy Griffin <patsy@redhat.com> - 2019b-1
+- Rebase to tzdata-2019b
+  - Brazil will no longer observe DST going forward.
+  - The 2019 spring transition for Palestine occurred 03-29, not 03-30.
+
+* Tue Mar 26 2019 Patsy Griffin Franklin <patsy@redhat.com> - 2019a-1
+- Rebase to tzdata-2019a
+  - Palestine will start DST on 2019-03-30, rather than 2019-03-23 as
+    previously predicted.
+  - Metlakatla rejoined Alaska time on 2019-01-20, ending its observances
+    of Pacific standard time.
+
+* Wed Jan 02 2019 Patsy Griffin Franklin <pfrankli@redhat.com> - 2018i-1
+- Rebase to tzdata-2018i (includes changes from tzdata-2018h)
+  - São Tomé and Príncipe changed from UTC+01 to UTC+00 on 2019-01-01.
+  - Qyzylorda, Kazakhstan changed from UTC+06 to UTC+05 on 2018-12-21.
+  - Created a new zone Asia/Qostanay since Qostanay, Kazakhstan didn't 
+    transition with the Qyzylorda change.
+  - Metlakatla, Alaska will observe PST for this winter only.
+  - Predict that Morocco will continue to adjust clocks around Ramadan.
+  - Also include predictions for Iran from 2038 through 2090.
+
 * Mon Oct 29 2018 Patsy Griffin Franklin <pfrankli@redhat.com> - 2018g-1
 - Rebase to tzdata-2018g
   - Morocco will remain at UTC+1 rather than switching back to UTC+0 as
