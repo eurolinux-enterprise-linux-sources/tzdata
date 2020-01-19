@@ -1,8 +1,8 @@
 Summary: Timezone data
 Name: tzdata
-Version: 2018i
-%define tzdata_version 2018i
-%define tzcode_version 2018i
+Version: 2019a
+%define tzdata_version 2019a
+%define tzcode_version 2019a
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -148,6 +148,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/javazi-1.8
 
 %changelog
+* Tue Mar 26 2019 Patsy Griffin Franklin <patsy@redhat.com> - 2019a-1
+- Rebase to tzdata-2019a
+  - Palestine will start DST on 2019-03-30, rather than 2019-03-23 as
+    previously predicted.
+  - Metlakatla rejoined Alaska time on 2019-01-20, ending its observances
+    of Pacific standard time.
+
 * Wed Jan 02 2019 Patsy Griffin Franklin <pfrankli@redhat.com> - 2018i-1
 - Rebase to tzdata-2018i (includes changes from tzdata-2018h)
   - São Tomé and Príncipe changed from UTC+01 to UTC+00 on 2019-01-01.
