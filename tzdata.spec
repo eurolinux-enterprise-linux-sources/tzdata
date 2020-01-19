@@ -1,8 +1,8 @@
 Summary: Timezone data
 Name: tzdata
-Version: 2019a
-%define tzdata_version 2019a
-%define tzcode_version 2019a
+Version: 2019b
+%define tzdata_version 2019b
+%define tzcode_version 2019b
 Release: 1%{?dist}
 License: Public Domain
 Group: System Environment/Base
@@ -148,6 +148,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/javazi-1.8
 
 %changelog
+* Mon Jul 01 2019 Patsy Griffin <patsy@redhat.com> - 2019b-1
+- Rebase to tzdata-2019b
+  - Brazil will no longer observe DST going forward.
+  - The 2019 spring transition for Palestine occurred 03-29, not 03-30.
+
 * Tue Mar 26 2019 Patsy Griffin Franklin <patsy@redhat.com> - 2019a-1
 - Rebase to tzdata-2019a
   - Palestine will start DST on 2019-03-30, rather than 2019-03-23 as
