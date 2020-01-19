@@ -1,0 +1,13 @@
+diff -Nrup a/Makefile b/Makefile
+--- a/Makefile	2018-10-04 14:49:24.000000000 -0400
++++ b/Makefile	2018-10-18 16:23:33.675393451 -0400
+@@ -343,7 +343,7 @@ GCC_DEBUG_FLAGS = -DGCC_LINT -g3 -O3 -fn
+ # January's first Monday when a "%V" format is used and January 1
+ # falls on a Friday, Saturday, or Sunday.
+ 
+-CFLAGS=
++CFLAGS= -DHAVE_SNPRINTF=1
+ 
+ # Linker flags.  Default to $(LFLAGS) for backwards compatibility
+ # to release 2012h and earlier.
+Binary files a/tzdata2018f-rearguard.tar.gz and b/tzdata2018f-rearguard.tar.gz differ
